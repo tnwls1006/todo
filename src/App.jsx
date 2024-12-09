@@ -1,13 +1,23 @@
-import { useState } from 'react';
-import Header from './components/Header'
-import Input from './components/Input'
-import Lists from './components/Lists'
+// import { useState } from 'react';
+// components
+// import Header from './components/Header'
+// import Input from './components/Input'
+// import Lists from './components/Lists'
+
+
 
 import './index.css'
+import Header from './z_components/Header';
+import Input from './z_components/Input';
+import Lists from './z_components/Lists';
 
 // 상태 관리, 컴포넌트 연결
 
 function App() {
+
+  /*
+  // components
+
   // todos 배열로 초기화
   const [todos, setTodos] = useState([]);
 
@@ -36,6 +46,16 @@ function App() {
       <Lists todos={todos} completeTodo={completeTodo} deleteTodo={deleteTodo}/>
     </div>
     </>
+  )
+  */
+
+  // z_components
+  return(
+    <div>
+      <Header />
+      <Input />
+      <Lists />
+    </div>
   )
 }
 

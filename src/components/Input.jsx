@@ -19,19 +19,16 @@ function Input({ addTodo }) {
   return (
     <form
       className="flex items-center justify-center gap-4 my-6"
-      onSubmit={todoSubmit}
-    >
+      onSubmit={todoSubmit}>
       <input
         type="text"
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
         placeholder="Todo 입력"
-        className="border border-gray-300 rounded px-4 py-2 w-2/3"
-      />
+        className="border border-gray-300 rounded px-4 py-2 w-2/3" />
       <button
         type="submit"
-        className="bg-blue-500 text-white rounded px-6 py-2 hover:bg-blue-600"
-      >
+        className="bg-blue-500 text-white rounded px-6 py-2 hover:bg-blue-600">
         확인
       </button>
     </form>

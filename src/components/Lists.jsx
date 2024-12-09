@@ -12,26 +12,22 @@ function Lists({ todos, completeTodo, deleteTodo }) {
         todos.map((todo, index) => (
           <div
             key={index}
-            className="flex items-center justify-between border-b py-2"
-          >
+            className="flex items-center justify-between border-b py-2">
             <span
               className={`flex-1 ${
                 todo.completed ? "line-through text-gray-500" : ""
-              }`}
-            >
+              }`}>
               {index + 1}. {todo.text}
             </span>
             <div className="flex gap-2">
               <button
                 onClick={() => completeTodo(index)}
-                className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
-              >
+                className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
                 완료
               </button>
               <button
                 onClick={() => deleteTodo(index)}
-                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-              >
+                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
                 삭제
               </button>
             </div>
