@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import Header from './components/Header'
+import Input from './components/Input'
+import Lists from './components/Lists'
+
+import './index.css'
+
+// 상태 관리, 컴포넌트 연결
 
 function App() {
-  const [count, setCount] = useState(0)
+  // todos 배열로 초기화
+  const [todos, setTodos] = useState([]);
 
+  // 새로운 todo 추가
+  const addTodo = (text) => {
+    setTodos([...todos, { text, completed: false }]);
+  };
+
+  // 완료 함수
+  const completeTodo = (index) => {
+    const updatedTodos = [...todos];
+    updatedTodos[index].completed = !updatedTodos[index].completed;
+    setTodos(updatedTodos);
+  };
+
+  // 삭제 함수
+  const deleteTodo = (index) => {
+    const updatedTodos = todos.filter((_, i) => i !== index);
+    setTodos(updatedTodos);
+  };
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      <Header />
+      <Input addTodo={addTodo}/>
+      <Lists todos={todos} completeTodo={completeTodo} deleteTodo={deleteTodo}/>
+    </div>
     </>
   )
 }
