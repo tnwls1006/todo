@@ -3,7 +3,8 @@ import { useState } from "react"
 
 function Input() {
     const [input, setInput] = useState("");
-    const addTodo = useTodo((state) => state.addTodo);
+    const addTodo = useTodo((state) => state.addTodo)
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
