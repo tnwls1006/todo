@@ -34,8 +34,13 @@ const useTodo = create((set) => ({
         {...todo, todo:updatedText}: todo),
     })),
 
+    // 필터
     setFilter: (filter) => set(() => ({filter})),
 
+    // 완료 항목 일괄 삭제
+    completedAllDelete:  () => set((state) => ({
+        todos: state.todos.filter((todo) => !todo.completed),
+    })),
 }))
 
 export default useTodo;
