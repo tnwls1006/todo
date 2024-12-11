@@ -7,14 +7,17 @@ function Lists() {
     const deleteTodo = useTodo((state) => state.deleteTodo);
     const updateTodo = useTodo((state) => state.updateTodo);
 
+    // edit 수정중
     const [editNum, setEditNum] = useState(null);
     const [editTodo, setEditTodo] = useState("");
 
+    // 수정 버튼 클릭 시
     const handleEdit = (num, currentText) => {
         setEditNum(num);
         setEditTodo(currentText);
     };
 
+    // 수정 -> 저장 버튼 클릭 시
     const handleUpdate = (num) => {
         if(editTodo.trim()) {
             updateTodo(num, editTodo);
