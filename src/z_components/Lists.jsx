@@ -6,6 +6,7 @@ function Lists() {
     const completeTodo = useTodo((state) => state.completeTodo);
     const deleteTodo = useTodo((state) => state.deleteTodo);
     const updateTodo = useTodo((state) => state.updateTodo);
+    const filter = useTodo((state) => state.filter);
 
     // edit 수정중
     const [editNum, setEditNum] = useState(null);
@@ -25,11 +26,21 @@ function Lists() {
         }
     };
 
+    // todos 필터
+    const filterTodos = todos.filter((todo)=> {
+        if(filter === "all")
+            return true;
+        if(filter === "completed")
+            return todo.completed;
+        if(filter === "notCompleted")
+            return !todo.completed;
+    })
+
     return (
         <div className="w-2/3 mx-auto">
-            {todos.length === 0 ? (
+            {filterTodos.length === 0 ? (
             <p className="text-center text-gray-500">Todo가 없습니다</p>) : 
-            ( todos.map((todo) => (
+            ( filterTodos.map((todo) => (
                 <div
                     key={todo.num}
                     className="flex items-center justify-between border-b py-2">

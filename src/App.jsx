@@ -10,6 +10,7 @@ import './index.css'
 import Header from './z_components/Header';
 import Input from './z_components/Input';
 import Lists from './z_components/Lists';
+import TodoFilter from './z_components/TodoFilter';
 
 // 상태 관리, 컴포넌트 연결
 
@@ -54,6 +55,7 @@ function App() {
     <div>
       <Header />
       <Input />
+      <TodoFilter />
       <Lists />
     </div>
   )

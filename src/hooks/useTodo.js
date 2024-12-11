@@ -2,10 +2,13 @@ import { create } from "zustand";
 
 const useTodo = create((set) => ({
     todos: [],
+    filter: "all",
 
     // todos 추가
     addTodo : (todo) => set((state) => ({
-        todos: [...state.todos, {num: state.todos.length + 1, todo, completed: false}]
+        todos: [...state.todos, 
+            {num: state.todos.length + 1, todo, completed: false}
+        ]
     })),
 
     // todos 삭제
@@ -31,6 +34,7 @@ const useTodo = create((set) => ({
         {...todo, todo:updatedText}: todo),
     })),
 
+    setFilter: (filter) => set(() => ({filter})),
 
 }))
 
