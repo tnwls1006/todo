@@ -7,7 +7,7 @@ const useTodo = create((set) => ({
     // todos 추가
     addTodo : (todo) => set((state) => ({
         todos: [...state.todos, 
-            {num: state.todos.length + 1, todo, completed: false}
+            {num: state.todos.length + 1, todo, completed: false, details: ""}
         ]
     })),
 
@@ -40,6 +40,12 @@ const useTodo = create((set) => ({
     // 완료 항목 일괄 삭제
     completedAllDelete:  () => set((state) => ({
         todos: state.todos.filter((todo) => !todo.completed),
+    })),
+
+    // 상세 내용
+    updateDetails: (num, newDetails) => set((state) =>({
+        todos: state.todos.map((todo) =>
+        todo.num === num ? {...todo, details: newDetails} : todo),
     })),
 }))
 
